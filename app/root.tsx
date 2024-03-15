@@ -1,3 +1,4 @@
+import type { LinksFunction } from '@remix-run/cloudflare'
 import {
   Links,
   Meta,
@@ -5,7 +6,11 @@ import {
   Scripts,
   ScrollRestoration,
 } from '@remix-run/react'
-import './tailwind.css'
+import tailwindcss from './tailwind.css?url'
+
+export const links: LinksFunction = () => {
+  return [{ rel: 'stylesheet', href: tailwindcss }]
+}
 
 export function Layout({ children }: { children: React.ReactNode }) {
   return (
